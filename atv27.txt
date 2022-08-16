@@ -1,0 +1,27 @@
+Serializando um objeto
+
+  private static void saveObject(Serializable object, String filename) throws IOException {
+    
+    ObjectOutputStream objstream = new ObjectOutputStream(new FileOutputStream(filename));
+
+    
+    objstream.writeObject(object);
+
+
+    objstream.close();
+  }
+
+
+  private static Object loadObject(String filename) throws ClassNotFoundException, IOException {
+
+    ObjectInputStream objstream = new ObjectInputStream(new FileInputStream(filename));
+
+
+    Object object = objstream.readObject();
+
+    
+    objstream.close();
+
+    
+    return object;
+  }
